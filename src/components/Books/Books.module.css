@@ -1,0 +1,21 @@
+
+.mainContentWrapper{
+width: 100%;
+}
+
+.totalBookCount{
+    margin: 40px auto;
+    font-weight: bold;
+
+}
+
+.bookCardsWrapper{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; */
+}

@@ -1,0 +1,31 @@
+
+
+.searchInputGroup {
+    font-size: 24px;
+    padding: 20px 0;
+
+
+
+}
+.searchLoup {
+    padding: 0;
+    margin:  0px 5px 0 -23px;
+    height: 0px;
+    width: 0px;
+    border:none;
+}
+
+.searchLoupImg{
+    height: 22px;
+    width: 22px;
+    
+}
+
+.searchParametersGroup {
+    padding: 20px 0;
+    font-size: 16px;
+}
+.searchParameter {
+    display: inline-block;
+    padding:5px
+}

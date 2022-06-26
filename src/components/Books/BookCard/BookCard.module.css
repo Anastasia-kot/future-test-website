@@ -1,0 +1,15 @@
+.bookCardWrapper {
+    background-color: rgba(197, 197, 197, 0.832);
+    display: inline-block;
+    margin: 10px;
+    width:20%;
+    min-width: 250px;
+    max-width: 400px;
+    
+}
+
+.bookCover {
+    /* width: 150px; */
+    height: 200px;
+    margin: 20px;
+}
