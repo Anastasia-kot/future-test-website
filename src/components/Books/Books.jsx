@@ -1,25 +1,21 @@
 import styles from './Books.module.css';
 import React, { PureComponent } from 'react';
 import BookCard from './BookCard/BookCard';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import { getBooks  } from '../../redux/app-reducer.js';
+import { getBooks, loadMoreBooks  } from '../../redux/app-reducer.js';
 import Preloader from '../Services/Preloader';
+import { NavLink } from 'react-router-dom';
+
 
 class Books extends PureComponent {
   componentDidMount() {
     
-    // getBooksInitialize()
-    //   .then(response => {
-    //     this.props.setBooks(response.items);
-    //     this.props.setBooksTotalCount(response.totalItems);
-        
-    //   })
-    this.props.getBooks('flowers', 'all', 'newest')
+   // this.props.getBooks('flowers', 'all', 'newest', null)
       
   }
   
   render() {
+    
     return (
       this.props.isFetching
       ?   <Preloader />    
@@ -28,10 +24,23 @@ class Books extends PureComponent {
           
 
         <div className={styles.bookCardsWrapper}>
-        {this.props.books.map(b => { return (<BookCard book={b}/>) })}
+            {this.props.books.map(b => { return (
+              <NavLink key={0+this.props.books.indexOf(b)} className={styles.bookCardWrapper}
+                to={'/bookPage/' + this.props.books.indexOf(b)}>  
+                  <BookCard book={b} key={this.props.books.indexOf(b)}/>
+              </NavLink >  
+
+            ) })}
         </div>   
 
-       <button>Load more</button>
+        <button
+          disabled={(this.props.currentPage + 1) * 30 >= this.props.booksTotalCount} 
+          onClick={ () => 
+            this.props.loadMoreBooks(
+              this.props.searchParameters.keyWord, this.props.searchParameters.category, 
+              this.props.searchParameters.sorting, this.props.currentPage)}>
+            Load more
+        </button>
 
       </div>);
   }
@@ -41,7 +50,10 @@ const mapStateToProps = (state) => ({
   books: state.appPage.books,
   booksTotalCount: state.appPage.booksTotalCount,
   isFetching: state.appPage.isFetching,
+  searchParameters: state.appPage.searchParameters,
+  currentPage: state.appPage.currentPage,
+
 });
 
 
-export default connect(mapStateToProps, { getBooks })(Books);
+export default connect(mapStateToProps, { getBooks, loadMoreBooks })(Books);

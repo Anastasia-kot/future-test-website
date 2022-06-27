@@ -6,12 +6,7 @@ const Form = () => {
     let formref = React.createRef();
     let onClickSubmit = (ev) => {
         ev.preventDefault();
-        // console.log(ev.target[0].value)
 
-        // for (let key of formref.current.elements) {
-        //     console.log(key.checked + key.name)
-        // }  
-    }
         
     return (
 <form onSubmit={onClickSubmit} ref={formref}>
@@ -50,5 +45,5 @@ const Form = () => {
 </form>
     )
 }
-
+}
 export default Form;

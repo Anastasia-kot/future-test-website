@@ -1,7 +1,9 @@
 import React from 'react'; 
 import './App.css';
+import BookPage from './components/BookPage/BookPage';
 import Books from './components/Books/Books';
-import Header from './components/Header/Header'; 
+import Header from './components/Header/Header';
+import { Route, Routes } from 'react-router-dom';
 
 
 
@@ -10,7 +12,14 @@ function App() {
     <div className="App">
    
      <Header />
-     <Books />
+      <Routes>
+        <Route path='/' element={<Books />} />
+        <Route path='/bookPage/:id' element={<BookPage />} />
+      </Routes>
+
+
+    
+
     </div>
   );
 }
