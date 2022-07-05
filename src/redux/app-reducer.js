@@ -80,6 +80,9 @@ export let addLoadedBooks = (booksArray) => ({ type: ADD_LOADED_BOOKS, booksArra
 
 export const getBooks = (keyWord, category, sorting, currentPage) => (dispatch) => {
     dispatch(setIsFetchingStatus(true));
+    dispatch(setBooks([]));
+    dispatch(setBooksTotalCount('some'));
+
     getBooksByAPI(keyWord, category, sorting, currentPage)
         .then(response => {
 

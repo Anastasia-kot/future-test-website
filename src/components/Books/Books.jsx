@@ -15,11 +15,11 @@ class Books extends PureComponent {
   }
   
   render() {
+  
     
     return (
-      this.props.isFetching
-      ?   <Preloader />    
-      : <div className={styles.mainContentWrapper}>
+
+        <div className={styles.mainContentWrapper}>
         <div className={styles.totalBookCount}> Found {this.props.booksTotalCount ? this.props.booksTotalCount : 'some'} results </div>
           
 
@@ -32,6 +32,9 @@ class Books extends PureComponent {
 
             ) })}
         </div>   
+
+        {this.props.isFetching &&     <Preloader />    }
+
 
         <button className={styles.loadMoreButton}
           disabled={(this.props.currentPage + 1) * 30 >= this.props.booksTotalCount} 

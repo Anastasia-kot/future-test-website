@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     /* align-items: ; */
+    line-height: 36px;
 }
 
 
@@ -16,21 +17,26 @@
 
 
 .searchLoupButton {
-    height: 36px;
-    width: 36px;
-    border: 1px solid grey ;
+    height: 34px;
+    width: 34px;
+    /* border: 1px solid grey ; */
+    border: none;
     background-color: white;
-    border-radius: 1px;
+    /* border-radius: 2px; */
     display: block; 
-    margin-left: -36px; 
+    margin-left: -36px;
+    margin-top: 1px;
+
 }
 .searchLoupButton:hover,
 .searchLoupButton:active {
-    border: 1px solid rgb(86, 85, 85);
+    filter: brightness(1.5);
 }
+
 .searchLoupImg{
     height: 22px;
-    width: 22px;  
+    width: 22px;
+    filter: brightness(1.05);
 }
 
 
@@ -52,5 +58,5 @@
 .select {
     height: 30px;
     margin-left: 5px;
-    color:grey;
+    /* color:rgb(80, 79, 79); */
 }

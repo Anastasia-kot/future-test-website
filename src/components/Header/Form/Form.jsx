@@ -14,7 +14,7 @@ const Form = (props) => {
                        }, 400);
                    }}
                >
-{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting,}) => (
+{({ values, errors, touched, handleChange, handleSubmit, isSubmitting,}) => (
     <form onSubmit={handleSubmit}>
 
         <div className={styles.searchInputGroup}>
@@ -23,7 +23,6 @@ const Form = (props) => {
                 name="keyWord" 
                 type="text"
                 onChange={handleChange}
-                // onBlur={handleBlur}
                 value={values.keyWord} />
             <button className={styles.searchLoupButton}
                 type="submit" 
@@ -40,7 +39,6 @@ const Form = (props) => {
                     name='categories'
                     type="text"
                     onChange={handleChange}
-                    // onBlur={handleBlur}
                     value={values.categories} >
                         <option value='all'>All</option>
                         <option value='art'>Art</option>
@@ -57,7 +55,6 @@ const Form = (props) => {
                     name='sortingBy'
                     type="text"
                     onChange={handleChange}
-                    // onBlur={handleBlur}
                     value={values.sortingBy}>
                         <option value='relevance'>Relevance</option>
                         <option value='newest'>Newest</option>
