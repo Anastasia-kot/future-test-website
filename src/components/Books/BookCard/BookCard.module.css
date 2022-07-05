@@ -10,7 +10,7 @@
 }
 
 .bookCover {
-    /* width: 150px; */
+    max-width: 150px;
     height: 200px;
     margin: 20px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getBooks } from '../../redux/app-reducer';
-import FormFormic from './Form/FormFormic';
+import Form from './Form/Form';
 import styles from './Header.module.css';
 
 const Header = (props) => {
@@ -11,7 +11,7 @@ const Header = (props) => {
       <div className={styles.headerTitle}> 
         Search for books 
       </div>
-      <FormFormic getBooks={props.getBooks}/>
+      <Form getBooks={props.getBooks}/>
     </div>
   );
 

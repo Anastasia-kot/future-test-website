@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 class Books extends PureComponent {
   componentDidMount() {
     
-   // this.props.getBooks('flowers', 'all', 'newest', null)
+    this.props.getBooks('ReactJS', 'all', 'newest', null)
       
   }
   
@@ -33,7 +33,7 @@ class Books extends PureComponent {
             ) })}
         </div>   
 
-        <button
+        <button className={styles.loadMoreButton}
           disabled={(this.props.currentPage + 1) * 30 >= this.props.booksTotalCount} 
           onClick={ () => 
             this.props.loadMoreBooks(
