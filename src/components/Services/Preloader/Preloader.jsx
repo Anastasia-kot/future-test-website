@@ -1,5 +1,5 @@
 import React from "react";
-import isLoading from '../../Images/preloader.gif';
+import isLoading from '../../../Images/preloader.gif';
 import styles from './Preloader.module.css';
 
 

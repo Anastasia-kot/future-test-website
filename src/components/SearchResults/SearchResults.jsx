@@ -1,26 +1,24 @@
-import styles from './Books.module.css';
+import styles from './SearchResults.module.css';
 import React, { PureComponent } from 'react';
 import BookCard from './BookCard/BookCard';
 import { connect } from 'react-redux';
 import { getBooks, loadMoreBooks  } from '../../redux/app-reducer.js';
-import Preloader from '../Services/Preloader';
+import Preloader from '../Services/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
 
 
-class Books extends PureComponent {
+class SearchResults extends PureComponent {
   componentDidMount() {
-    
     this.props.getBooks('ReactJS', 'all', 'newest', null)
-      
   }
   
   render() {
-  
-    
     return (
-
-        <div className={styles.mainContentWrapper}>
-        <div className={styles.totalBookCount}> Found {this.props.booksTotalCount ? this.props.booksTotalCount : 'some'} results </div>
+      <div className={styles.mainContentWrapper}>
+        
+        <div className={styles.totalBookCount}> 
+          Found {this.props.booksTotalCount ? this.props.booksTotalCount : 'some'} results 
+        </div>
           
 
         <div className={styles.bookCardsWrapper}>
@@ -33,7 +31,7 @@ class Books extends PureComponent {
             ) })}
         </div>   
 
-        {this.props.isFetching &&     <Preloader />    }
+        {this.props.isFetching &&   <Preloader />   }
 
 
         <button className={styles.loadMoreButton}
@@ -59,4 +57,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, { getBooks, loadMoreBooks })(Books);
+export default connect(mapStateToProps, { getBooks, loadMoreBooks })(SearchResults);

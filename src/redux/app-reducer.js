@@ -3,6 +3,7 @@ import { getBooksByAPI } from "../API/api";
 const SET_BOOKS = 'SET_BOOKS';
 const SET_BOOKS_TOTAL_COUNT = 'SET_BOOKS_TOTAL_COUNT';
 const SET_IS_FETCHING_STATUS = 'SET_IS_FETCHING_STATUS';
+
 const SET_SEARCH_PARAMETERS = 'SET_SEARCH_PARAMETERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const ADD_LOADED_BOOKS = 'ADD_LOADED_BOOKS';
@@ -20,7 +21,7 @@ let initialState = {
     searchParameters: {
         keyWord: null, 
         category: null, 
-        sorting:null
+        sorting: null
     },
     currentPage: 0,
 };
@@ -51,15 +52,16 @@ const appReducer = (state = initialState, action) => {
                 ...state, 
                 isFetching: action.isFetchingStatus
         }
+
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
         case SET_SEARCH_PARAMETERS:
             return {
                 ...state, 
                 searchParameters: {...action.searchParameters}
-        }
-        case SET_CURRENT_PAGE:
-            return {
-                ...state, 
-                currentPage:  action.currentPage 
         }
 
         default:
@@ -70,11 +72,14 @@ const appReducer = (state = initialState, action) => {
 
 export let setBooks = (booksArray) => ({ type: SET_BOOKS, booksArray });
 export let setBooksTotalCount = (count) => ({ type: SET_BOOKS_TOTAL_COUNT, count });
-export let setIsFetchingStatus = (isFetchingStatus) => ({ type: SET_IS_FETCHING_STATUS, isFetchingStatus });
+export let setIsFetchingStatus = (isFetchingStatus) => ({  type: SET_IS_FETCHING_STATUS, isFetchingStatus });
 
 export let setSearchParameters = (searchParameters) => ({ type: SET_SEARCH_PARAMETERS, searchParameters });
-export let setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export let setCurrentPage = (currentPage) => ({  type: SET_CURRENT_PAGE, currentPage });
 export let addLoadedBooks = (booksArray) => ({ type: ADD_LOADED_BOOKS, booksArray });
+
+
+
 
 
 
@@ -95,6 +100,7 @@ export const getBooks = (keyWord, category, sorting, currentPage) => (dispatch) 
             dispatch(setSearchParameters({ keyWord: keyWord, category: category, sorting:sorting }))
             dispatch(setCurrentPage('0'))
          })
+
 }
 
 export const loadMoreBooks = (keyWord, category, sorting, currentPage) => (dispatch) => {
