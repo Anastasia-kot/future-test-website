@@ -1,9 +1,12 @@
 
 
 .bookCover {
-    max-width: 150px;
+    width: 150px;
+    min-width: 150px;
     height: 200px;
+    min-height: 200px;
     margin: 20px;
+    background-color: rgba(227, 227, 227, 0.832);
 }
 
 .bookCategory {

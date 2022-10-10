@@ -18,7 +18,8 @@ const Form = (props) => {
     <form onSubmit={handleSubmit}>
 
         <div className={styles.searchInputGroup}>
-            <input className={styles.searchInput}
+            <div className={styles.relativeContainer}>
+                <input className={styles.searchInput}
                 placeholder='Type key word for search' 
                 name="keyWord" 
                 type="text"
@@ -27,10 +28,9 @@ const Form = (props) => {
             <button className={styles.searchLoupButton}
                 type="submit" 
                 disabled={isSubmitting}>
-                <img className={styles.searchLoupImg}
-                    src='https://img2.freepng.ru/20180623/suf/kisspng-computer-icons-magnifying-glass-magnifier-clip-art-zoom-in-5b2e324e088154.4432894615297541900349.jpg'
-                    alt='search' />
+                    🔎 
             </button>
+            </div>
         </div>
 
         <div className={styles.searchParametersGroup}>

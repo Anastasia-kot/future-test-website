@@ -6,6 +6,7 @@ import { getBooks, loadMoreBooks  } from '../../redux/app-reducer.js';
 import Preloader from '../Services/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
 
+import { Card, Col, Row } from 'antd';
 
 class SearchResults extends PureComponent {
   componentDidMount() {
@@ -21,7 +22,10 @@ class SearchResults extends PureComponent {
         </div>
           
 
-        <div className={styles.bookCardsWrapper}>
+        {/* <div className={styles.bookCardsWrapper}> */}
+          <div className="site-card-wrapper">
+
+            <Row gutter={16}>
             {this.props.books.map(b => { return (
               <NavLink key={0+this.props.books.indexOf(b)} className={styles.bookCardWrapper}
                 to={'/bookPage/' + this.props.books.indexOf(b)}>  
@@ -29,6 +33,9 @@ class SearchResults extends PureComponent {
               </NavLink >  
 
             ) })}
+
+            </Row>
+        {/* </div>    */}
         </div>   
 
         {this.props.isFetching &&   <Preloader />   }
@@ -46,6 +53,10 @@ class SearchResults extends PureComponent {
       </div>);
   }
 }  
+
+ 
+
+
 
 const mapStateToProps = (state) => ({
   books: state.appPage.books,

@@ -55,9 +55,13 @@ return ( <div className={styles.bookPageWrapper}>
           {book.publisher ? book.publisher : ''}
         </div>
 
-        <div className={styles.bookDescription}>
-         {book.description ? book.description : ''}
-        </div>      
+
+        {!!book.description && 
+          <div className={styles.bookDescription}>
+            {book.description ? book.description : ''}
+          </div>
+        } 
+            
 </div>
 
 </div>);

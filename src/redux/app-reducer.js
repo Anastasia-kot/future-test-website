@@ -90,16 +90,23 @@ export const getBooks = (keyWord, category, sorting, currentPage) => (dispatch) 
 
     getBooksByAPI(keyWord, category, sorting, currentPage)
         .then(response => {
+            if (response.status === 200) {
+                dispatch(setBooksTotalCount(response.data.totalItems));
 
-            dispatch(setBooksTotalCount(response.totalItems));
+                let newItems = response.data.items.map(i => i.volumeInfo);
 
-            let newItems = response.items.map(i => i.volumeInfo);
+                dispatch(setBooks(newItems));
+                dispatch(setCurrentPage('0'))
 
-            dispatch(setBooks(newItems));
-            dispatch(setIsFetchingStatus(false));
-            dispatch(setSearchParameters({ keyWord: keyWord, category: category, sorting:sorting }))
-            dispatch(setCurrentPage('0'))
-         })
+                dispatch(setIsFetchingStatus(false));
+                dispatch(setSearchParameters({ keyWord: keyWord, category: category, sorting:sorting }))
+            } else {
+                dispatch(setIsFetchingStatus(false));
+                dispatch(setSearchParameters({ keyWord: keyWord, category: category, sorting: sorting }))
+                alert(`some error. Try again later. Error text: ${response.statusText}`)
+  
+            }
+        })
 
 }
 
@@ -108,12 +115,18 @@ export const loadMoreBooks = (keyWord, category, sorting, currentPage) => (dispa
     dispatch(setIsFetchingStatus(true));
     getBooksByAPI(keyWord, category, sorting, currentPage)
         .then(response => {
-            let newItems = response.items.map(i => i.volumeInfo);
+            if (response.status===200) {
+                let newItems = response.data.items.map(i => i.volumeInfo);
 
-            dispatch(addLoadedBooks(newItems));
-            dispatch(setIsFetchingStatus(false));
-            currentPage++;
-            dispatch(setCurrentPage(currentPage));
+                dispatch(addLoadedBooks(newItems));
+                dispatch(setIsFetchingStatus(false));
+                currentPage++;
+                dispatch(setCurrentPage(currentPage));
+            } else {
+                dispatch(setIsFetchingStatus(false));
+                alert(`some error. Try again later. Error text: ${response.statusText}`)
+
+            }
 
          })
 }

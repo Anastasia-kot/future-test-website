@@ -1,7 +1,7 @@
 import React from 'react'; 
 import './App.css';
 import BookPage from './components/BookPage/BookPage';
-import SearchResults from './components/SearchResults/SearchResults';
+import SearchResults, { Result } from './components/SearchResults/SearchResults';
 import Header from './components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 
