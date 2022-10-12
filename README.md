@@ -3,7 +3,8 @@
 
 ## Использованный стек/ технические требования:
 + React
-+ Redux
++ Redux, Redux-Thunk
++ Formik 
 + Axios для взаимодействия с [Google Books API](https://developers.google.com/books/docs/v1/using "Документация Google Books API"). Сгенерирован [Google API key](https://developers.google.com/books/docs/v1/using#APIKey "https://developers.google.com/books/docs/v1/using#APIKey")
 + Адаптивность от 320px до 1920px 
 + Визуализацию с использованием  UI фреймворка (Ant Design)  
