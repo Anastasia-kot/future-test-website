@@ -1,5 +1,4 @@
 # Онлайн-сервис поиска книг с помощью Google Books API  
-### https://anastasia-kot.github.io/future-test-website/
 
 ## Использованный стек/ технические требования:
 + React
